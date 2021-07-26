@@ -25,4 +25,4 @@ VOLUME /home/coder/project /root/.local/share/code-server/extensions
 EXPOSE 8080 22
 # 容器启动code-server：指定插件目录，指定中文，指定免密登录
 #ENTRYPOINT ["code-server","--locale","zh-cn","--auth","123456"]
-ENTRYPOINT ["code-server","--locale","zh-cn","--auth","123456"]
+ENTRYPOINT ["code-server","--locale","zh-cn","--auth","password"]
