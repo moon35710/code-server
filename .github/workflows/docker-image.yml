@@ -28,7 +28,7 @@ jobs:
         logout: true # optional, default is true
     - name: Build the Docker image
       env:
-        tag: ${{`date +%s`}}
+        tag: 11
       run: |
         echo "tag1=$(date +%s)" >> $GITHUB_ENV
 
