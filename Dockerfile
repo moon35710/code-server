@@ -1,7 +1,7 @@
-FROM codercom/code-server:v2
+FROM codercom/code-server:3.10.2
 # ADD
 ADD soft/jdk1.8.0_181 /usr/local/jdk1.8.0_181/
-ADD apache-maven-3.6.3 /usr/local/apache-maven-3.6.3/
+ADD soft/apache-maven-3.6.3 /usr/local/apache-maven-3.6.3/
 ADD soft/scala-2.11.12 /usr/local/scala-2.11.12/
 # code-server总配置文件
 ADD settings.json /root/.local/share/code-server/User/
