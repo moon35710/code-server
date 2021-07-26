@@ -16,7 +16,9 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build the Docker image
-      run: echo '$env.tag'
+      env:
+        tag: '$(date +%s)'
+      run: echo '$tag'
 #      run: echo '$tag' && docker build . --file Dockerfile --tag ccr.ccs.tencentyun.com/java_docker/code-server:$tag
     - name: Docker Login
       # You may pin to the exact commit or the version.
@@ -32,6 +34,8 @@ jobs:
         # Log out from the Docker registry at the end of a job
         logout: true # optional, default is true
     - name: push the Docker image
+      env:
+        tag: '$(date +%s)'
 #      run:     run: echo '$env.tag' &&  docker push ccr.ccs.tencentyun.com/java_docker/code-server:$tag
-      run: echo '$env.tag'
+      run: echo '$tag'
 
