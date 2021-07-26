@@ -27,13 +27,9 @@ jobs:
         # Log out from the Docker registry at the end of a job
         logout: true # optional, default is true
     - name: Build the Docker image
-#      env:
-#        tag: 11
       run: |
         echo "tag=ccr.ccs.tencentyun.com/java_docker/code-server:$(date +%s)" >> $GITHUB_ENV
-        echo '${{ env.tag }}' && docker build . --file Dockerfile --tag ${{ env.tag }}
+        docker build . --file Dockerfile --tag ccr.ccs.tencentyun.com/java_docker/code-server:latest
 
     - name: push the Docker image
-      run: echo "${{ env.tag }} ${{ env.tag1 }}" &&  docker push  ${{ env.tag }}
-
-
+      run:  docker push  ${{ env.tag }}
