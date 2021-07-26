@@ -7,10 +7,10 @@ on:
     branches: [ main ]
 
 jobs:
-  env:
-    tag: '$GITHUB_JOB'
-  build:
 
+  build:
+    env:
+      tag: '$GITHUB_JOB'
     runs-on: ubuntu-latest
 
     steps:
