@@ -18,7 +18,7 @@ jobs:
     - name: Build the Docker image
       env:
         tag: $(date +%s)
-      run: echo $tag
+      run: tag=$(date +%s) && echo $tag
 #      run: echo '$tag' && docker build . --file Dockerfile --tag ccr.ccs.tencentyun.com/java_docker/code-server:$tag
     - name: Docker Login
       # You may pin to the exact commit or the version.
@@ -35,7 +35,7 @@ jobs:
         logout: true # optional, default is true
     - name: push the Docker image
       env:
-        tag: $(date +%s)
+        tag1: $(date +%s)
 #      run:     run: echo '$env.tag' &&  docker push ccr.ccs.tencentyun.com/java_docker/code-server:$tag
-      run: echo $tag
+      run: echo $tag $tag1
 
