@@ -30,10 +30,10 @@ jobs:
       env:
         tag: 11
       run: |
-        echo "tag1=$(date +%s)" >> $GITHUB_ENV
-        echo '$tag' && docker build . --file Dockerfile --tag ccr.ccs.tencentyun.com/java_docker/code-server:$tag
+        echo "tag=ccr.ccs.tencentyun.com/java_docker/code-server:$(date +%s)" >> $GITHUB_ENV
+        echo '$tag' && docker build . --file Dockerfile --tag tag
 
     - name: push the Docker image
-      run: echo "${{ env.tag }} ${{ env.tag1 }}" &&  docker push ccr.ccs.tencentyun.com/java_docker/code-server:${{env.tag}}
+      run: echo "${{ env.tag }} ${{ env.tag1 }}" &&  docker push  ${{ env.tag }}
 
 
