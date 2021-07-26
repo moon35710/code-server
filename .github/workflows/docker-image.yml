@@ -8,7 +8,7 @@ on:
 
 jobs:
   env:
-    tag:'$GITHUB_JOB'
+    tag: '$GITHUB_JOB'
   build:
 
     runs-on: ubuntu-latest
