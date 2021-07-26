@@ -28,13 +28,13 @@ jobs:
         logout: true # optional, default is true
     - name: Build the Docker image
       env:
-        tag: `$(date +%s)`
-      run: export tag=$(date +%s) && echo $tag
+        tag: ${{ $(date +%s)}}
+      run: |
+        echo "tag1=$(date +%s)" >> $GITHUB_ENV
+
 #      run: echo '$tag' && docker build . --file Dockerfile --tag ccr.ccs.tencentyun.com/java_docker/code-server:$tag
 
     - name: push the Docker image
-      env:
-        tag1: `$(date +%s)`
 #      run:     run: echo '$env.tag' &&  docker push ccr.ccs.tencentyun.com/java_docker/code-server:$tag
-      run: echo $tag $tag1
+      run: echo "${{ env.tag }} ${{ env.tag1 }}"
 
