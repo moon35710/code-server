@@ -26,10 +26,11 @@ jobs:
         password: Chen@1016 # optional
         # Log out from the Docker registry at the end of a job
         logout: true # optional, default is true
-    - name: Build the Docker image
+    - name: init Docker image
       run: |
         echo "tag=ccr.ccs.tencentyun.com/java_docker/code-server:$(date +%s)" >> $GITHUB_ENV
-        docker build . --file Dockerfile --tag ccr.ccs.tencentyun.com/java_docker/code-server:latest
 
+    - name: build the Docker image
+      run: docker build . --file Dockerfile --tag ${{ env.tag }}
     - name: push the Docker image
-      run:  docker push  ${{ env.tag }}
+      run: docker push  ${{ env.tag }}
