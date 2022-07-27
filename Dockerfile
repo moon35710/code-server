@@ -21,7 +21,7 @@ ENV PATH=$MAVEN_HOME/bin:$SCALA_HOME/bin:$PATH
 
 WORKDIR /home/coder/project
 VOLUME /home/coder/project /root/.local/share/code-server/extensions
-
+RUN ls /home/coder/project
 EXPOSE 8080 22
 # 容器启动code-server：指定插件目录，指定中文，指定免密登录
 #ENTRYPOINT ["code-server","--locale","zh-cn","--auth","123456"]
